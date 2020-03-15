@@ -18,7 +18,9 @@
       <tbody>
       @foreach ($posts as $post)
         <tr>
-          <td>{{ $post->title }}</td>
+          <td>
+            <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
+          </td>
           <td>{{ $post->body }}</td>
           <td>{{ $post->created_at }}</td>
           <td>{{ $post->updated_at }}</td>

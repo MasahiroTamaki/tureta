@@ -48,9 +48,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    //1件ごとの詳細表示
+    public function show(Post $post)
     {
-        //
+      return view('posts.show', ['post' => $post]);
     }
 
     /**
