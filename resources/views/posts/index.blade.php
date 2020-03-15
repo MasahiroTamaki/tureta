@@ -1,0 +1,31 @@
+@php
+  $title = 'みんなの釣果';
+@endphp
+@extends('layouts.my')
+@section('content')
+<div class="container">
+  <h1>{{ $title }}</h1>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>題名</th>
+          <th>本文</th>
+          <th>投稿日</th>
+          <th>更新日</th>
+        </tr>
+      </thead>
+      <tbody>
+      @foreach ($posts as $post)
+        <tr>
+          <td>{{ $post->title }}</td>
+          <td>{{ $post->body }}</td>
+          <td>{{ $post->created_at }}</td>
+          <td>{{ $post->updated_at }}</td>
+        </tr>
+      @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
+@endsection
