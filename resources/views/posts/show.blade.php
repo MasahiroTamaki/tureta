@@ -6,6 +6,13 @@ $title = $post->title;
 <div class="container">
   <h1 id="post-title">{{ $title }}</h1>
 
+  {{-- 編集・削除ボタン --}}
+    <div class="edit">
+        <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
+          編集
+        </a>
+    </div>
+
   {{-- 記事内容 --}}
   <dl class="row">
     <dt class="col-md-2">投稿日</dt>

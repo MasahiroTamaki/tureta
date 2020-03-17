@@ -70,9 +70,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    //更新用フォームへ移動
+    public function edit(Post $post)
     {
-        //
+      return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -82,9 +83,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    // 実際の更新処理
+    public function update(Request $request, Post $post)
     {
-        //
+      $post->title = $request->title;            //それぞれの値を保存して
+      $post->fishing_day = $request->fishing_day;
+      $post->weather = $request->weather;
+      $post->time_zone = $request->time_zone;
+      $post->place = $request->place;
+      $post->body = $request->body;
+      $post->save();                             //DBに保存
+      return redirect('posts/'.$post->id);       //完了後、更新した記事のページへ移動
     }
 
     /**
