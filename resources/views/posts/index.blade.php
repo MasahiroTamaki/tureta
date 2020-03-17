@@ -1,5 +1,5 @@
 @php
-  $title = 'みんなの釣果';
+$title = 'みんなの釣果';
 @endphp
 @extends('layouts.my')
 @section('content')
@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-      @foreach ($posts as $post)
+        @foreach ($posts as $post)
         <tr>
           <td>
             <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
@@ -25,7 +25,7 @@
           <td>{{ $post->created_at }}</td>
           <td>{{ $post->updated_at }}</td>
         </tr>
-      @endforeach
+        @endforeach
       </tbody>
     </table>
   </div>

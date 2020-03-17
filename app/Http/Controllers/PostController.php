@@ -26,9 +26,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // 新規投稿用フォームへ移動
     public function create()
     {
-        //
+      return view('posts.create');
     }
 
     /**
@@ -37,9 +38,18 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // 実際の投稿処理
     public function store(Request $request)
     {
-        //
+      $post = new Post;                          //新しいインスタンスを作成
+      $post->title = $request->title;            //それぞれの値を保存して
+      $post->fishing_day = $request->fishing_day;
+      $post->weather = $request->weather;
+      $post->time_zone = $request->time_zone;
+      $post->place = $request->place;
+      $post->body = $request->body;
+      $post->save();                             //DBに保存
+      return redirect('posts/'.$post->id);       // 完了後、投稿した記事のページへ移動
     }
 
     /**
