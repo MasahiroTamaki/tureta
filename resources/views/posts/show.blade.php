@@ -11,6 +11,10 @@ $title = $post->title;
         <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
           編集
         </a>
+        @component('components.btn_del')
+          @slot('table', 'posts')
+          @slot('id', $post->id)
+        @endcomponent
     </div>
 
   {{-- 記事内容 --}}

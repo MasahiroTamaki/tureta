@@ -102,8 +102,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    // 1件削除
+    public function destroy(Post $post)
     {
-        //
+      $post->delete();
+      return redirect('posts');
     }
 }
