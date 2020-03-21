@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //postsのCRUDに関するルート
 Route::resource('posts', 'PostController');
+
+//usersのCRUDに関するルート
+Route::resource('users', 'UserController');
