@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;  // Userモデルをインポート
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -58,9 +59,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    // 更新用フォームへ移動
+    public function edit(User $user)
     {
-        //
+      return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -70,9 +72,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    // 実際の更新処理
+    public function update(Request $request, User $user)
     {
-        //
+      $user->name = $request->name;
+      $user->save();
+      return redirect('users/'.$user->id);
     }
 
     /**
