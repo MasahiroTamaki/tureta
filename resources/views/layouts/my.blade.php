@@ -57,7 +57,7 @@
             @else
             {{-- 「プロフィール」と「ログアウト」のドロップダウンメニュー --}}
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" id="dropdown-user" data-toggle="dropdwn" aria-haspopup="true" aria-expanded="false">
+              <a href="#" class="nav-link dropdown-toggle" id="dropdown-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }} <span class="caret"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
