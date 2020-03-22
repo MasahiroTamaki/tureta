@@ -29,5 +29,6 @@ $title = 'みんなの釣果';
       </tbody>
     </table>
   </div>
+  {{ $posts->links() }}
 </div>
 @endsection

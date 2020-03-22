@@ -23,5 +23,6 @@ $title = "ユーザー";
       </tbody>
     </table>
   </div>
+  {{ $users->links() }}
 </div>
 @endsection
