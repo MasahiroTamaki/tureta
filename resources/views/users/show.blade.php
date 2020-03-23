@@ -26,5 +26,47 @@ $title = 'ユーザー：' . $user->name;
     <dt class="col-md-2">メールアドレス</dt>
     <dd class="col-md-10">{{ $user->email }}</dd>
   </dl>
+
+  {{-- ユーザーの記事一覧 --}}
+  <h2>投稿した釣果</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>題名</th>
+          <th>本文</th>
+          <th>投稿日</th>
+          <th>更新日</th>
+
+          {{-- 記事の編集・削除ボタンのカラム --}}
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($user->posts as $post)
+          <tr>
+            <td>
+              <a href="{{ url('posts/'.$user->id) }}">
+                {{ $post->title }}
+              </a>
+            </td>
+            <td>{{ $post->body }}</td>
+            <td>{{ $post->created_at }}</td>
+            <td>{{ $post->updated_at }}</td>
+            <td nowrap>
+              <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
+                編集
+              </a>
+              @component('components.btn_del')
+              @slot('table', 'posts')
+              @slot('id', '$post->id')
+              @endcomponent
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+  {{ $user->posts->links() }}
 </div>
 @endsection

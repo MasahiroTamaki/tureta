@@ -9,6 +9,7 @@ $title = 'みんなの釣果';
     <table class="table table-striped">
       <thead>
         <tr>
+          <th>投稿者</th>
           <th>題名</th>
           <th>本文</th>
           <th>投稿日</th>
@@ -18,6 +19,9 @@ $title = 'みんなの釣果';
       <tbody>
         @foreach ($posts as $post)
         <tr>
+          <td>
+            <a href="{{ url('users/'.$post->user->id) }}">{{ $post->user->name }}</a>
+          </td>
           <td>
             <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
           </td>
