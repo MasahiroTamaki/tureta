@@ -30,11 +30,21 @@
           {{-- Navbarの左側 --}}
           <ul class="navbar-nav mr-auto">
             {{-- 「記事」と「ユーザー」へのリンク --}}
-            <li class="nav-item">
-              <a href="{{ url('posts') }}" class="nav-link">みんなの釣果</a>
+            <li class="nav-item @if (my_is_current_controller('posts')) active @endif">
+              <a href="{{ url('posts') }}" class="nav-link">
+                みんなの釣果
+                @if (my_is_current_controller('posts'))
+                    <span class="sr-only">(current)</span>
+                @endif
+              </a>
             </li>
-            <li class="nav-item">
-              <a href="{{ url('users') }}" class="nav-link">ユーザー</a>
+            <li class="nav-item @if (my_is_current_controller('users')) active @endif">
+              <a href="{{ url('users') }}" class="nav-link">
+                ユーザー
+                @if (my_is_current_controller('users'))
+                    <span class="sr-only">(current)</span>
+                @endif
+              </a>
             </li>
           </ul>
 
@@ -48,11 +58,21 @@
             {{-- 認証関連のリンク --}}
             @guest
             {{-- 「ログイン」と「ユーザー登録」のリンク --}}
-            <li class="nav-item">
-              <a href="{{ route('login') }}" class="nav-link">ログイン</a>
+            <li class="nav-item @if (my_is_current_controller('login', 'password')) active @endif">
+              <a href="{{ route('login') }}" class="nav-link">
+                ログイン
+                @if (my_is_current_controller('login', 'password'))
+                    <span class="sr-only">(current)</span>
+                @endif
+              </a>
             </li>
-            <li class="nav-item">
-              <a href="{{ route('register') }}" class="nav-link">ユーザー登録</a>
+            <li class="nav-item @if (my_is_current_controller('register')) active @endif">
+              <a href="{{ route('register') }}" class="nav-link">
+                ユーザー登録
+                @if (my_is_current_controller('register'))
+                    <span class="sr-only">(current)</span>
+                @endif
+              </a>
             </li>
             @else
             {{-- 「プロフィール」と「ログアウト」のドロップダウンメニュー --}}
