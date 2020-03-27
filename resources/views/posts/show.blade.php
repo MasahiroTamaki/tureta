@@ -12,8 +12,9 @@ $title = $post->title;
           編集
         </a>
         @component('components.btn_del')
-          @slot('table', 'posts')
+          @slot('controller', 'posts')
           @slot('id', $post->id)
+          @slot('name', $post->title)
         @endcomponent
     </div>
 

@@ -12,8 +12,9 @@ $title = 'ユーザー：' . $user->name;
     編集
     </a>
     @component('components.btn_del')
-      @slot('table', 'users')
+      @slot('controller', 'users')
       @slot('id', $user->id)
+      @slot('name', $user->name)
     @endcomponent
   </div>
 
@@ -58,8 +59,9 @@ $title = 'ユーザー：' . $user->name;
                 編集
               </a>
               @component('components.btn_del')
-              @slot('table', 'posts')
-              @slot('id', '$post->id')
+                @slot('controller', 'posts')
+                @slot('id', $post->id)
+                @slot('name', $post->title)
               @endcomponent
             </td>
           </tr>
