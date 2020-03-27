@@ -20,6 +20,12 @@ $title = $post->title;
 
   {{-- 記事内容 --}}
   <dl class="row">
+    <dt class="col-md-2">投稿者</dt>
+    <dd class="col-md-10">
+      <a href="{{ url('users/'.$post->user->id) }}">
+        {{ $post->user->name }}
+      </a>
+    </dd>
     <dt class="col-md-2">投稿日</dt>
     <dd class="col-md-10">
       <time itemprop="dateCreated" datetime="{{ $post->created_at }}">
