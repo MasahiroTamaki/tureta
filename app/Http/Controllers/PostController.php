@@ -48,6 +48,7 @@ class PostController extends Controller
       $post->time_zone = $request->time_zone;
       $post->place = $request->place;
       $post->body = $request->body;
+      $post->user_id = $request->user()->id;  // $request->user()は認証済みのユーザーを返す
       $post->save();                             //DBに保存
       return redirect('posts/'.$post->id);       // 完了後、投稿した記事のページへ移動
     }
