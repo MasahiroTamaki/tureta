@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;  // Postモデルをインポート
+use App\Http\Requests\StorePost; 
 
 class PostController extends Controller
 {
@@ -35,11 +36,11 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StorePost  $request
      * @return \Illuminate\Http\Response
      */
     // 実際の投稿処理
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
       $post = new Post;                          //新しいインスタンスを作成
       $post->title = $request->title;            //それぞれの値を保存して
@@ -48,7 +49,7 @@ class PostController extends Controller
       $post->time_zone = $request->time_zone;
       $post->place = $request->place;
       $post->body = $request->body;
-      $post->user_id = $request->user()->id;  // $request->user()は認証済みのユーザーを返す
+      $post->user_id = $request->user()->id;     // $request->user()は認証済みのユーザーを返す
       $post->save();                             //DBに保存
       return redirect('posts/'.$post->id);       // 完了後、投稿した記事のページへ移動
     }
@@ -80,12 +81,12 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StorePost  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     // 実際の更新処理
-    public function update(Request $request, Post $post)
+    public function update(StorePost $request, Post $post)
     {
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
