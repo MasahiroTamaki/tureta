@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
+     * 各アクションの前に実行させるミドルウェア
+     */
+    public function __construct()
+    {
+      // $this->middleware('auth')->except(['index', 'show']);
+      // 登録していなくても、退会だけはできるようにする
+      $this->middleware('auth')->only('destroy');
+      $this->middleware('verified')->except(['index', 'show', 'destroy']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

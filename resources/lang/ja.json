@@ -17,5 +17,28 @@
   "This password reset link will expire in :count minutes.": "再設定URLの有効期限は :count 分です。",
   "If you did not request a password reset, no further action is required.": "もしパスワード再発行をリクエストしていない場合、操作は不要です。",
   "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\ninto your web browser: [:actionURL](:actionURL)": "\":actionText\"ボタンを押しても何も起きない場合、以下URLをコピーしてWebブラウザに貼り付けてください。\n[:actionURL](:actionURL)",
-  "Regards": "よろしくお願いいたします"
+  "Regards": "よろしくお願いいたします",
+
+  "You logged in.": "ログインしました。",
+  "You logged out.": "ログアウトしました。",
+  "Registration have not yet completed.": "登録はまだ完了していません。",
+  "Check your email for a verification link.": "確認用に送信したメールの記載に従って、登録手続きを完了してください。",
+  "Registration completed.": "ユーザー登録が完了しました。",
+
+  "Error": "エラー",
+  "Forbidden": "閲覧禁止",
+  "You do not have permission to access this page.": "このページを表示する権限がありません。",
+  "Not Found": "ページが見つかりません",
+  "The requested page does not exist.": "リクエストされたページは存在しません。",
+  "Internal Server Error": "サーバ内部エラー",
+  "The server was unable to complete your request.": "サーバが処理を完了できませんでした。",
+
+  "Verify Your Email Address": "ユーザー登録を完了してください",
+  "A fresh verification link has been sent to your email address.": "ユーザー登録の確認用のメールを送信しました。",
+  "Before proceeding, please check your email for a verification link.": "メールに記載されているリンクをクリックして、登録手続きを完了してください。",
+  "If you did not receive the email,": "メールが届いていなければ、",
+  "click here to request another.": "こちらをクリックして再送信してください。",
+  "Please click the link below to verify your email address.": "下記のリンクをクリックして、このメールアドレスでユーザー登録することを確認してください。",
+  "If you did not create an account, no further action is required.": "ユーザー登録に心当たりがない場合は、このまま削除してください。",
+  "Verify Email Address": "このアドレスで登録する"
   }
