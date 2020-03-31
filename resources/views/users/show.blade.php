@@ -52,7 +52,7 @@ $title = 'ユーザー：' . $user->name;
         @foreach ($user->posts as $post)
           <tr>
             <td>
-              <a href="{{ url('posts/'.$user->id) }}">
+              <a href="{{ url('posts/'.$post->id) }}">
                 {{ $post->title }}
               </a>
             </td>
