@@ -7,16 +7,18 @@ $title = 'ユーザー：' . $user->name;
   <h1>{{ $title }}</h1>
 
   {{-- 編集・削除ボタン --}}
-  <div>
-    <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-primary">
-    編集
-    </a>
-    @component('components.btn_del')
-      @slot('controller', 'users')
-      @slot('id', $user->id)
-      @slot('name', $user->name)
-    @endcomponent
-  </div>
+  @can('edit', $user)  {{-- bladeによる認可 --}}
+    <div>
+      <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-primary">
+      編集
+      </a>
+      @component('components.btn_del')
+        @slot('controller', 'users')
+        @slot('id', $user->id)
+        @slot('name', $user->name)
+      @endcomponent
+    </div>
+  @endcan
 
   {{-- ユーザー1件の情報 --}}
   <dl class="row">
@@ -40,7 +42,7 @@ $title = 'ユーザー：' . $user->name;
           <th>更新日</th>
 
           {{-- 記事の編集・削除ボタンのカラム --}}
-          <th></th>
+          @can('edit', $user) <th></th> @endcan
         </tr>
       </thead>
       <tbody>
@@ -54,16 +56,18 @@ $title = 'ユーザー：' . $user->name;
             <td>{{ $post->body }}</td>
             <td>{{ $post->created_at }}</td>
             <td>{{ $post->updated_at }}</td>
-            <td nowrap>
-              <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
-                編集
-              </a>
-              @component('components.btn_del')
-                @slot('controller', 'posts')
-                @slot('id', $post->id)
-                @slot('name', $post->title)
-              @endcomponent
-            </td>
+            @can('edit', $user)  {{-- 認可 --}}
+              <td nowrap>
+                <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
+                  編集
+                </a>
+                @component('components.btn_del')
+                  @slot('controller', 'posts')
+                  @slot('id', $post->id)
+                  @slot('name', $post->title)
+                @endcomponent
+              </td>
+            @endcan
           </tr>
         @endforeach
       </tbody>

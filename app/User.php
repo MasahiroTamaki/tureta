@@ -69,4 +69,15 @@ class User extends Authenticatable implements MustVerifyEmailContract
     {
       $this->notify(new CustomVerifyEmail());
     }
+
+    /**
+     * 現在のユーザー、または引数で渡されたIDかどうかを返す
+     * 
+     * @param number $id User ID
+     * @return booliean
+     */
+    public function isAdmin($id = null) {
+      $id = ($id) ? $id : $this->id;
+      return $id == config('admin_id');
+    }
 }

@@ -75,6 +75,7 @@ class UserController extends Controller
     // 更新用フォームへ移動
     public function edit(User $user)
     {
+      $this->authorize('edit', $user);  // 認可を判断するpolisyのeditメソッド
       return view('users.edit', ['user' => $user]);
     }
 
@@ -88,6 +89,7 @@ class UserController extends Controller
     // 実際の更新処理
     public function update(Request $request, User $user)
     {
+      $this->authorize('edit', $user);  // 認可を判断するpolisyのeditメソッド
       $user->name = $request->name;
       $user->save();
       return redirect('users/'.$user->id);
@@ -102,6 +104,7 @@ class UserController extends Controller
     // 1件削除
     public function destroy(User $user)
     {
+      $this->authorize('edit', $user);  // 認可を判断するpolisyのeditメソッド
       $user->delete();
       return redirect('users');
     }

@@ -84,6 +84,7 @@ class PostController extends Controller
     //更新用フォームへ移動
     public function edit(Post $post)
     {
+      $this->authorize('edit', $post);  // 認可を判断するpolisyのeditメソッド
       return view('posts.edit', ['post' => $post]);
     }
 
@@ -97,6 +98,7 @@ class PostController extends Controller
     // 実際の更新処理
     public function update(StorePost $request, Post $post)
     {
+      $this->authorize('edit', $post);  // 認可を判断するpolisyのeditメソッド
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
       $post->weather = $request->weather;
@@ -116,6 +118,7 @@ class PostController extends Controller
     // 1件削除
     public function destroy(Post $post)
     {
+      $this->authorize('edit', $post);  // 認可を判断するpolisyのeditメソッド
       $post->delete();
       return redirect('posts');
     }

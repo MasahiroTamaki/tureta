@@ -7,6 +7,7 @@ $title = $post->title;
   <h1 id="post-title">{{ $title }}</h1>
 
   {{-- 編集・削除ボタン --}}
+  @can('edit', $post)  {{-- bladeによる認可 --}}
     <div class="edit">
         <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
           編集
@@ -17,6 +18,7 @@ $title = $post->title;
           @slot('name', $post->title)
         @endcomponent
     </div>
+  @endcan
 
   {{-- 記事内容 --}}
   <dl class="row">
