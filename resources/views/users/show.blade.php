@@ -7,18 +7,21 @@ $title = 'ユーザー：' . $user->name;
   <h1>{{ $title }}</h1>
 
   {{-- 編集・削除ボタン --}}
-  @can('edit', $user)  {{-- bladeによる認可 --}}
-    <div>
-      <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-primary">
-      編集
-      </a>
-      @component('components.btn_del')
-        @slot('controller', 'users')
-        @slot('id', $user->id)
-        @slot('name', $user->name)
-      @endcomponent
-    </div>
-  @endcan
+  {{-- 管理者のページを表示中の場合は、編集・削除のボタンを表示させない --}}
+  @if (Auth::check() && !Auth::user()->isAdmin($user->id))
+    @can('edit', $user)  {{-- bladeによる認可 --}}
+      <div>
+        <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-primary">
+        編集
+        </a>
+        @component('components.btn_del')
+          @slot('controller', 'users')
+          @slot('id', $user->id)
+          @slot('name', $user->name)
+        @endcomponent
+      </div>
+    @endcan
+  @endif
 
   {{-- ユーザー1件の情報 --}}
   <dl class="row">
