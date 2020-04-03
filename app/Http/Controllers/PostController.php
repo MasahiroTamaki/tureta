@@ -60,7 +60,8 @@ class PostController extends Controller
       $post->body = $request->body;
       $post->user_id = $request->user()->id;     // $request->user()は認証済みのユーザーを返す
       $post->save();                             //DBに保存
-      return redirect('posts/'.$post->id);       // 完了後、投稿した記事のページへ移動
+      // 完了後、投稿した記事のページへ移動。フラッシュメッセージをsessionに保存。
+      return redirect('posts/'.$post->id)->with('my_status', '記事を投稿しました。');
     }
 
     /**
@@ -106,7 +107,8 @@ class PostController extends Controller
       $post->place = $request->place;
       $post->body = $request->body;
       $post->save();                             //DBに保存
-      return redirect('posts/'.$post->id);       //完了後、更新した記事のページへ移動
+      //完了後、更新した記事のページへ移動。フラッシュメッセージをsessionに保存。
+      return redirect('posts/'.$post->id)->with('my_status', '記事を更新しました。');
     }
 
     /**
@@ -120,6 +122,7 @@ class PostController extends Controller
     {
       $this->authorize('edit', $post);  // 認可を判断するpolisyのeditメソッド
       $post->delete();
-      return redirect('posts');
+      // 完了後、一覧ページへ移動。フラッシュメッセージをsessionに保存。
+      return redirect('posts')->with('my_status', '記事を削除しました。');
     }
 }

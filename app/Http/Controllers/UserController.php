@@ -99,7 +99,8 @@ class UserController extends Controller
 
       $user->name = $request->name;
       $user->save();
-      return redirect('users/'.$user->id);
+      // 完了後、更新したユーザーページへ移動。フラッシュメッセージをsessionに保存。
+      return redirect('users/'.$user->id)->with('my_status', 'プロフィールを更新しました。');
     }
 
     /**
@@ -113,6 +114,7 @@ class UserController extends Controller
     {
       $this->authorize('edit', $user);  // 認可を判断するpolisyのeditメソッド
       $user->delete();
-      return redirect('users');
+      // 完了後、ユーザー一覧ページへ移動。フラッシュメッセージをsessionに保存。
+      return redirect('users')->with('my_status', 'ユーザーを削除しました。');
     }
 }

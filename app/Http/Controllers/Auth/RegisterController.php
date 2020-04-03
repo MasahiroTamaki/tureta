@@ -8,6 +8,7 @@ use App\Http\Requests\StoreUser;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -72,4 +73,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+  // ユーザー登録後の処理
+  protected function registered(Request $request, $user)
+  {
+    // 登録後、そのユーザーページのプロフィールページへ移動。フラッシュメッセージをsessionに保存。
+    return redirect('users/'.$user->id)->with('my_status', '登録はまだ完了していません。確認用に送信したメールの記載に従って、登録手続きを完了してください。');
+  }
 }
