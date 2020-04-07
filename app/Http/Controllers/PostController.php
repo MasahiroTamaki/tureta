@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;  // Postモデルをインポート
-use App\Http\Requests\StorePost; 
+use App\User;
+use App\Http\Requests\StorePost;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -51,7 +53,16 @@ class PostController extends Controller
     // 実際の投稿処理
     public function store(StorePost $request)
     {
+      // ログインしているユーザーを取得
+      $user = Auth::user();
+      // ファイル名取得
+      $filename = $user->id . $request->file('photo')->getClientOriginalName();
+      // storage/app/publicにファイルを保存する
+      $request->file('photo')->storeAs('public', $filename);
+      
       $post = new Post;                          //新しいインスタンスを作成
+      $post->path = '/storage/'.$filename;
+      
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
       $post->weather = $request->weather;

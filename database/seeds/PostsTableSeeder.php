@@ -23,6 +23,7 @@ class PostsTableSeeder extends Seeder
             'time_zone' => $faker->text(20),
             'place' => $faker->text(20),
             'body' => $faker->text(200),
+            'path' => $faker->text(20),
             'created_at' => $faker->dateTime(),
             'updated_at' => $faker->dateTime(),
             'user_id' => $faker->numberBetween(1, 20)

@@ -5,7 +5,7 @@ $title = '釣果を投稿する';
 @section('content')
 <div class="container">
   <h1>{{ $title }}</h1>
-  <form action="{{ url('posts') }}" method="post">
+  <form action="{{ url('posts') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="title">題名</label>
@@ -73,6 +73,15 @@ $title = '釣果を投稿する';
       </span>
       @endif
     </div>
+    <div class="form-group">
+      <label for="photo">画像</label>
+      <input type="file" class="form-control-file @if ($errors->has('photo')) is-invalid @endif" name="photo">
+    </div>
+    @if ($errors->has('photo'))
+      <span class="invalid-feedback" role="alert">
+        {{ $errors->first('photo') }}
+      </span>
+    @endif
     <button type="submit" name="submit" class="btn btn-primary">投稿する</button>
   </form>
 </div>

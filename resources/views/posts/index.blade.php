@@ -11,6 +11,7 @@ $title = 'みんなの釣果';
         <tr>
           <th>投稿者</th>
           <th>題名</th>
+          <th></th>
           <th>本文</th>
           <th>投稿日</th>
           <th>更新日</th>
@@ -25,6 +26,7 @@ $title = 'みんなの釣果';
           <td>
             <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
           </td>
+          <td><img src="{{ asset($post->path) }}" width="50%"></td>
           <td>{{ $post->body }}</td>
           <td>{{ $post->created_at }}</td>
           <td>{{ $post->updated_at }}</td>
@@ -32,7 +34,7 @@ $title = 'みんなの釣果';
         @endforeach
       </tbody>
     </table>
-  </div>
+  </<img>
   {{ $posts->links() }}
 </div>
 @endsection
