@@ -76,12 +76,12 @@ $title = '釣果を投稿する';
     <div class="form-group">
       <label for="photo">画像</label>
       <input type="file" class="form-control-file @if ($errors->has('photo')) is-invalid @endif" name="photo">
-    </div>
-    @if ($errors->has('photo'))
+      @if ($errors->has('photo'))
       <span class="invalid-feedback" role="alert">
         {{ $errors->first('photo') }}
       </span>
-    @endif
+      @endif
+    </div>
     <button type="submit" name="submit" class="btn btn-primary">投稿する</button>
   </form>
 </div>

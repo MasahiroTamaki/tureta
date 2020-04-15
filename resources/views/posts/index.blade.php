@@ -26,7 +26,7 @@ $title = 'みんなの釣果';
           <td>
             <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
           </td>
-          <td><img src="{{ asset($post->path) }}" width="50%"></td>
+          <td><img src="{{ asset('storage/' . $post->path) }}" width="40%"></td>
           <td>{{ $post->body }}</td>
           <td>{{ $post->created_at }}</td>
           <td>{{ $post->updated_at }}</td>

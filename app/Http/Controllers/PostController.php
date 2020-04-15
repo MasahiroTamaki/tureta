@@ -7,6 +7,7 @@ use App\Post;  // Postモデルをインポート
 use App\User;
 use App\Http\Requests\StorePost;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -53,15 +54,17 @@ class PostController extends Controller
     // 実際の投稿処理
     public function store(StorePost $request)
     {
-      // ログインしているユーザーを取得
-      $user = Auth::user();
-      // ファイル名取得
-      $filename = $user->id . $request->file('photo')->getClientOriginalName();
-      // storage/app/publicにファイルを保存する
-      $request->file('photo')->storeAs('public', $filename);
-      
       $post = new Post;                          //新しいインスタンスを作成
-      $post->path = '/storage/'.$filename;
+      
+      if(!empty($request->file('photo'))){
+        // ログインしているユーザーを取得
+        $user = Auth::user();
+        // ファイル名取得
+        $filename = $user->id . $request->file('photo')->getClientOriginalName();
+        // storage/app/publicにファイルを保存する
+        $request->file('photo')->storeAs('public', $filename);
+        $post->path = $filename;
+      }
       
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
@@ -111,6 +114,21 @@ class PostController extends Controller
     public function update(StorePost $request, Post $post)
     {
       $this->authorize('edit', $post);  // 認可を判断するpolisyのeditメソッド
+      
+      if(!empty($request->file('photo'))){
+
+        if($post->path !== 'no_image.png'){
+          // 投稿済みの画像ファイルの削除
+          $deleteFile = 'public/' . $post->path;
+          Storage::delete($deleteFile);
+        }
+        // ファイル名取得
+        $filename = $post->user_id . $request->file('photo')->getClientOriginalName();
+        // storage/app/publicにファイルを保存する
+        $request->file('photo')->storeAs('public', $filename);
+        $post->path = $filename;
+      }
+
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
       $post->weather = $request->weather;
@@ -132,6 +150,13 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
       $this->authorize('edit', $post);  // 認可を判断するpolisyのeditメソッド
+
+      if($post->path !== 'no_image.png'){
+        // 画像がある場所のパスを指定し、画像ファイルの削除
+        $deleteFile = 'public/' . $post->path;
+        Storage::delete($deleteFile);
+      }
+
       $post->delete();
       // 完了後、一覧ページへ移動。フラッシュメッセージをsessionに保存。
       return redirect('posts')->with('my_status', '記事を削除しました。');

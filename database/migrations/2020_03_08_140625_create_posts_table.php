@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('time_zone');
             $table->string('place');
             $table->text('body');
-            $table->text('path');
+            $table->string('path')->default('no_image.png');
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

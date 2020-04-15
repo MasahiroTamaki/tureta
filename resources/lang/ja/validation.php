@@ -155,6 +155,7 @@ return [
         'time_zone' => '時間帯',
         'place' => '場所',
         'body' => '記事',
+        'photo' => '画像',
     ],
 
 ];

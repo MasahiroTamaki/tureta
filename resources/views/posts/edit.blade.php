@@ -5,10 +5,13 @@ $title = '編集';
 @section('content')
 <div class="container">
   <h1>{{ $title }}</h1>
-  <form action="{{ url('posts/'.$post->id) }}" method="post">
+  <form action="{{ url('posts/'.$post->id) }}" method="post"  enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group">
+      <div class="col-md-3" style="margin:10px 0 10px;">
+        <img src="{{ asset('storage/' . $post->path) }}" width="95%">
+      </div>
       <label for="title">題名</label>
       <input id="title" type="text" class="form-control @if ($errors->has('title')) is-invalid @endif" name="title" value="{{ old('title', $post->title) }}" autofocus>
       @if ($errors->has('title'))
@@ -71,6 +74,15 @@ $title = '編集';
       @if ($errors->has('body'))
       <span class="invalid-feedback" role="alert">
         {{ $errors->first('body') }}
+      </span>
+      @endif
+    </div>
+    <div class="form-group">
+      <label for="photo">写真を変更する場合選択してください</label>
+      <input type="file" class="form-control-file @if ($errors->has('photo')) is-invalid @endif" name="photo">
+      @if ($errors->has('photo'))
+      <span class="invalid-feedback" role="alert">
+        {{ $errors->first('photo') }}
       </span>
       @endif
     </div>

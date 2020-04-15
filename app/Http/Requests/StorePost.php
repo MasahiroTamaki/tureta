@@ -31,7 +31,7 @@ class StorePost extends FormRequest
             'time_zone' => 'required',
             'place' => 'required|max:20',
             'body' => 'required|max:400',
-            'photo' => 'required|image'
+            'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:10000',
         ];
     }
 }

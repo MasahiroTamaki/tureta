@@ -43,7 +43,7 @@ $title = $post->title;
   </dl>
   <hr>
   <div class="col-md-3" style="margin:10px 0 10px;">
-    <img src="{{ asset($post->path) }}" width="95%">
+    <img src="{{ asset('storage/' . $post->path) }}" width="95%">
   </div>
   <dl class="row">
     <dt class="col-md-2">釣行日</dt>
