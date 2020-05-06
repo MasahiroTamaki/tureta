@@ -3,7 +3,7 @@ $title = $post->title;
 @endphp
 @extends('layouts.my')
 @section('content')
-<div class="container">
+<div class="container" style="max-width: 768px; margin: 0 auto;">
   <h1 id="post-title">{{ $title }}</h1>
 
   {{-- 編集・削除ボタン --}}
@@ -42,23 +42,27 @@ $title = $post->title;
     </dd>
   </dl>
   <hr>
-  <div class="col-md-3" style="margin:10px 0 10px;">
+  <div class="col-md-12" style="margin:10px 0 10px;">
     <img src="{{ asset('storage/' . $post->path) }}" width="95%">
   </div>
+  <hr>
   <dl class="row">
-    <dt class="col-md-2">釣行日</dt>
+    <dt class="col-md-2"><i class="far fa-calendar-alt"></i> 釣行日</dt>
     <dd class="col-md-10">
       <time itemprop="fishing_day" datetime="{{ $post->fishing_day }}">
         {{ $post->fishing_day }}
       </time>
     </dd>
-    <dt class="col-md-2">天気</dt>
+    <dt class="col-md-2"><i class="fas fa-fish"></i> 魚種</dt>
+    <dd class="col-md-10">{{ $post->fish_type }}</dd>
+    <dt class="col-md-2"><i class="far fa-sun"></i> 天気</dt>
     <dd class="col-md-10">{{ $post->weather }}</dd>
-    <dt class="col-md-2">時間帯</dt>
+    <dt class="col-md-2"><i class="far fa-clock"></i> 時間帯</dt>
     <dd class="col-md-10">{{ $post->time_zone }}</dd>
-    <dt class="col-md-2">場所</dt>
+    <dt class="col-md-2"><i class="fas fa-map-marker-alt"></i> 場所</dt>
     <dd class="col-md-10">{{ $post->place }}</dd>
   </dl>
+  <hr>
   <div id="post-body">
     {{ $post->body }}
   </div>

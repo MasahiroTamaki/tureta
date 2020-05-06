@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('fishing_day');
+            $table->string('fish_type');
             $table->string('weather');
             $table->string('time_zone');
             $table->string('place');

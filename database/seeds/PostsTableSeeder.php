@@ -19,6 +19,7 @@ class PostsTableSeeder extends Seeder
           DB::table('posts')->insert([
             'title' => $faker->text(20),
             'fishing_day' => $faker->date(),
+            'fish_type' => $faker->text(20),
             'weather' => $faker->text(20),
             'time_zone' => $faker->text(20),
             'place' => $faker->text(20),

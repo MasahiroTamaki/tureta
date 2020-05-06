@@ -29,7 +29,7 @@ class PostController extends Controller
     public function index()
     {
       // 投稿日の新しい順で記事を5件ずつ一覧表示
-      $posts = Post::latest()->paginate(5);  //latest(), oldest() デフォルトでcreated_atカラムによりソートされる。
+      $posts = Post::latest()->paginate(8);  //latest(), oldest() デフォルトでcreated_atカラムによりソートされる。
 
       return view('posts.index', ['posts' => $posts]);
     }
@@ -68,6 +68,7 @@ class PostController extends Controller
       
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
+      $post->fish_type = $request->fish_type;
       $post->weather = $request->weather;
       $post->time_zone = $request->time_zone;
       $post->place = $request->place;
@@ -131,6 +132,7 @@ class PostController extends Controller
 
       $post->title = $request->title;            //それぞれの値を保存して
       $post->fishing_day = $request->fishing_day;
+      $post->fish_type = $request->fish_type;
       $post->weather = $request->weather;
       $post->time_zone = $request->time_zone;
       $post->place = $request->place;

@@ -27,9 +27,9 @@ $title = 'ユーザー：' . $user->name;
   <dl class="row">
     <dt class="col-md-2">ID</dt>
     <dd class="col-md-10">{{ $user->id }}</dd>
-    <dt class="col-md-2">ユーザー名</dt>
+    <dt class="col-md-2"><i class="far fa-user-circle"></i> ユーザー名</dt>
     <dd class="col-md-10">{{ $user->name }}</dd>
-    <dt class="col-md-2">メールアドレス</dt>
+    <dt class="col-md-2"><i class="far fa-envelope"></i> メールアドレス</dt>
     <dd class="col-md-10">{{ $user->email }}</dd>
   </dl>
 
@@ -39,8 +39,9 @@ $title = 'ユーザー：' . $user->name;
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>題名</th>
-          <th>本文</th>
+          <th><i class="far fa-sticky-note"></i> 題名</th>
+          <th><i class="far fa-calendar-alt"></i> 釣行日</th>
+          <th><i class="fas fa-fish"></i> 魚種</th>
           <th>投稿日</th>
           <th>更新日</th>
 
@@ -56,7 +57,8 @@ $title = 'ユーザー：' . $user->name;
                 {{ $post->title }}
               </a>
             </td>
-            <td>{{ $post->body }}</td>
+            <td>{{ $post->fishing_day }}</td>
+            <td>{{ $post->fish_type }}</td>
             <td>{{ $post->created_at }}</td>
             <td>{{ $post->updated_at }}</td>
             @can('edit', $user)  {{-- 認可 --}}

@@ -13,14 +13,18 @@
 
   {{-- CSS --}}
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/my.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.2.0/dist/css/yakuhanjp.min.css">
+  <link rel="icon" href="{{ asset('images/favicon.ico') }}">
+  <script src="https://kit.fontawesome.com/70f7ea178f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <a href="{{ url('/') }}" class="navbar-brand">
-          {{ config('app.name') }}
+        <a href="{{ url('/') }}" class="navbar-brand" id=app-name>
+          <img src="{{ asset('images/icon.png') }}" alt="icon">&nbsp;&nbsp;{{ config('app.name') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -110,6 +114,12 @@
     <main class="py-4">
       @yield('content')
     </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright © 2020 tureta All Rights Reserved.</p>
+      </div>
+    </footer>
   </div>
 
   {{-- JavaScript --}}

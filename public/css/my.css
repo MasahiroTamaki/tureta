@@ -1,0 +1,54 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #ffffff
+}
+
+#app-name {
+  font-weight: bold;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+#top-body h1{
+  color: #ffffff;
+  font-size: 500%;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  background: #9FC2CC;
+}
+
+@media screen and (min-width:992px) {
+  .navbar {
+    height: 80px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  #app {
+    font-size: 0.5rem;
+  }
+}
+
+.jumbotron {
+  background-size:cover;
+  height: 100vh;
+}
+
+.footer {
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  margin-top: auto;
+}
+.container .text-muted {
+  padding: 10px 0;
+  text-align: center;
+}

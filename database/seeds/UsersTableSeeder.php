@@ -25,9 +25,9 @@ class UsersTableSeeder extends Seeder
           'updated_at' => $faker->dateTime(),
         ]);
         DB::table('users')->insert([
-          'name' => 'hoge1',
-          'email' => 'hoge1@hoge.com',
-          'password' => bcrypt('1234'),
+          'name' => 'guest',
+          'email' => 'guest@mail.com',
+          'password' => bcrypt('guest'),
           'email_verified_at' => $faker->dateTime(),
           'created_at' => $faker->dateTime(),
           'updated_at' => $faker->dateTime(),

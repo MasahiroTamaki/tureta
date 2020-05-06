@@ -5,36 +5,25 @@ $title = 'みんなの釣果';
 @section('content')
 <div class="container">
   <h1>{{ $title }}</h1>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>投稿者</th>
-          <th>題名</th>
-          <th></th>
-          <th>本文</th>
-          <th>投稿日</th>
-          <th>更新日</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($posts as $post)
-        <tr>
-          <td>
-            <a href="{{ url('users/'.$post->user->id) }}">{{ $post->user->name }}</a>
-          </td>
-          <td>
-            <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
-          </td>
-          <td><img src="{{ asset('storage/' . $post->path) }}" width="40%"></td>
-          <td>{{ $post->body }}</td>
-          <td>{{ $post->created_at }}</td>
-          <td>{{ $post->updated_at }}</td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </<img>
-  {{ $posts->links() }}
+  <div class="container">
+    <div class="row">
+      @foreach ($posts as $post)
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card list-hover" style="margin-bottom: 20px">
+          <img class="card-img-top" src="{{ asset('storage/' . $post->path) }}" style="width: 100%; height: 200px; object-fit: cover;">
+          <a href="{{ url('posts/'.$post->id) }}"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{ $post->title }}</h5>
+            <p class="card-text"><i class="far fa-calendar-alt"></i> {{ $post->fishing_day }}</p>
+            <p class="card-text"><i class="fas fa-fish"></i> {{ $post->fish_type }}</p>
+            <p class="card-text"><i class="far fa-user-circle"></i> {{ $post->user->name }}</p>
+            <a href="{{ url('posts/' . $post->id) }}" class="btn btn-primary">詳しく見る</a>
+          </div>
+        </div>
+      </div>
+      @endforeach
+    </div>
+    {{ $posts->links() }}
+  </div>
 </div>
 @endsection

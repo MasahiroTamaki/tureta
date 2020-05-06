@@ -10,7 +10,7 @@ $title = "ユーザー";
       <thead>
         <tr>
           <th>ID</th>
-          <th>ユーザー名</th>
+          <th><i class="far fa-user-circle"></i> ユーザー名</th>
         </tr>
       </thead>
       <tbody>

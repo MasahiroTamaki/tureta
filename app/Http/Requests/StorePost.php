@@ -27,11 +27,12 @@ class StorePost extends FormRequest
         return [
             'title' => 'required|max:20',
             'fishing_day' => 'required|date',
+            'fish_type' => 'required|max:20',
             'weather' => 'required',
             'time_zone' => 'required',
             'place' => 'required|max:20',
             'body' => 'required|max:400',
-            'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:10000',
+            'photo' => 'file|image|mimes:jpeg,png,jpg,gif|max:10000',
         ];
     }
 }
