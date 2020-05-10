@@ -48,19 +48,15 @@ $title = $post->title;
   <hr>
   <dl class="row">
     <dt class="col-md-2"><i class="far fa-calendar-alt"></i> 釣行日</dt>
-    <dd class="col-md-10">
-      <time itemprop="fishing_day" datetime="{{ $post->fishing_day }}">
-        {{ $post->fishing_day }}
-      </time>
-    </dd>
+    <dd class="col-md-10" id="post-fishing_day">{{ $post->fishing_day }}</dd>
     <dt class="col-md-2"><i class="fas fa-fish"></i> 魚種</dt>
-    <dd class="col-md-10">{{ $post->fish_type }}</dd>
+    <dd class="col-md-10" id="post-fish_type">{{ $post->fish_type }}</dd>
     <dt class="col-md-2"><i class="far fa-sun"></i> 天気</dt>
-    <dd class="col-md-10">{{ $post->weather }}</dd>
+    <dd class="col-md-10" id="post-weather">{{ $post->weather }}</dd>
     <dt class="col-md-2"><i class="far fa-clock"></i> 時間帯</dt>
-    <dd class="col-md-10">{{ $post->time_zone }}</dd>
+    <dd class="col-md-10" id="post-time_zone">{{ $post->time_zone }}</dd>
     <dt class="col-md-2"><i class="fas fa-map-marker-alt"></i> 場所</dt>
-    <dd class="col-md-10">{{ $post->place }}</dd>
+    <dd class="col-md-10" id="post-place">{{ $post->place }}</dd>
   </dl>
   <hr>
   <div id="post-body">

@@ -22,7 +22,7 @@ $title = '編集';
     </div>
     <div class="form-group">
       <label for="fishing_day" class="far fa-calendar-alt"> 釣行日</label>
-      <input id="fishing_day" type="date" class="form-control  @if ($errors->has('fishing_day')) is-invalid @endif" name="fishing_day" value="{{ old('fishing_day', $post->fishing_day) }}">
+      <input id="fishing_day" type="number" class="form-control  @if ($errors->has('fishing_day')) is-invalid @endif" name="fishing_day" value="{{ old('fishing_day', $post->fishing_day) }}">
       @if ($errors->has('fishing_day'))
       <span class="invalid-feedback" role="alert">
         {{ $errors->first('fishing_day') }}
