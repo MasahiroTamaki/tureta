@@ -1,8 +1,7 @@
 # tureta
 
 [![Build Status](https://travis-ci.org/MasahiroTamaki/tureta.svg?branch=5.7)](https://travis-ci.org/MasahiroTamaki/tureta)
-[![codecov](https://codecov.io/gh/MasahiroTamaki/tureta
-/branch/master/graph/badge.svg)](https://codecov.io/gh/MasahiroTamaki/tureta)
+[![codecov](https://codecov.io/gh/MasahiroTamaki/tureta/branch/master/graph/badge.svg)](https://codecov.io/gh/MasahiroTamaki/tureta)
 
 
 My portfolio application for basic CRUD of Laravel 5.8 .
