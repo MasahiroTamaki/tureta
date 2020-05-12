@@ -1,3 +1,12 @@
+# tureta
+
+[![Build Status](https://travis-ci.org/MasahiroTamaki/tureta.svg?branch=5.7)](https://travis-ci.org/MasahiroTamaki/tureta)
+[![codecov](https://codecov.io/gh/MasahiroTamaki/tureta
+/branch/master/graph/badge.svg)](https://codecov.io/gh/MasahiroTamaki/tureta)
+
+
+My portfolio application for basic CRUD of Laravel 5.8 .
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
