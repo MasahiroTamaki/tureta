@@ -12,6 +12,7 @@
 
 .jumbotron {
   text-align: center;
+  height: 100vh;
 }
 
 #top-body h1{
@@ -35,11 +36,6 @@
   #app {
     font-size: 0.5rem;
   }
-}
-
-.jumbotron {
-  background-size:cover;
-  height: 100vh;
 }
 
 .footer {

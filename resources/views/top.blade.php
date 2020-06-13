@@ -5,7 +5,7 @@ $title = env('APP_NAME');
 @extends('layouts.my')
 @section('title', 'tureta')
 @section('content')
-<div class="jumbotron" style="background:url(images/top.jpg);">
+<div class="jumbotron">
   <div class="container">
       <h1><img src="{{ asset('images/iconlg.png') }}" alt="icon">&nbsp;{{ $title }}</h1>
       <body id="top-body">

@@ -17,6 +17,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.2.0/dist/css/yakuhanjp.min.css">
   <link rel="icon" href="{{ asset('images/favicon.ico') }}">
   <script src="https://kit.fontawesome.com/70f7ea178f.js" crossorigin="anonymous"></script>
+  <style>
+   .jumbotron {
+    background:url("{{asset('images/top.jpg')}}");
+    }
+  </style>
 </head>
 
 <body>
