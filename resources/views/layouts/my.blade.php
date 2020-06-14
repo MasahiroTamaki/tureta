@@ -19,7 +19,7 @@
   <script src="https://kit.fontawesome.com/70f7ea178f.js" crossorigin="anonymous"></script>
   <style type="text/css">
    .jumbotron {
-    background-image:url("{{asset('images/top.jpg')}}");
+    background-image:url("{{asset('images/icon.png')}}");
     }
   </style>
 </head>
