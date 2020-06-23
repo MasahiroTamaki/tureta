@@ -18,7 +18,7 @@ $title = '釣果を投稿する';
     </div>
     <div class="form-group">
       <label for="fishing_day" class="far fa-calendar-alt"> 釣行日</label>
-      <input id="fishing_day" type="number" class="form-control @if ($errors->has('fishing_day')) is-invalid @endif" name="fishing_day" placeholder="2020-01-01"　value="{{ old('fishing_day') }}">
+      <input id="fishing_day" type="number" class="form-control @if ($errors->has('fishing_day')) is-invalid @endif" name="fishing_day" placeholder="20200101"　value="{{ old('fishing_day') }}">
       @if ($errors->has('fishing_day'))
       <span class="invalid-feedback" role="alert">
         {{ $errors->first('fishing_day') }}
