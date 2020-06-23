@@ -28,8 +28,8 @@ class PostController extends Controller
     // 一覧表示
     public function index()
     {
-      // 投稿日の新しい順で記事を5件ずつ一覧表示
-      $posts = Post::latest()->paginate(8);  //latest(), oldest() デフォルトでcreated_atカラムによりソートされる。
+      // 釣行日の新しい順で記事を8件ずつ一覧表示
+      $posts = Post::orderByDesc('fishing_day')->paginate(8);  //latest(), oldest() デフォルトでcreated_atカラムによりソートされる。
 
       return view('posts.index', ['posts' => $posts]);
     }
